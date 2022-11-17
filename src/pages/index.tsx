@@ -20,7 +20,7 @@ export default function Home() {
             href="https://ekaizen.digital/"
             target="_blank"
             rel="noopener noreferrer"
-            className='underline underline-offset-4 hover:text-gray-500'
+            className='underline underline-offset-4 transition-colors duration-500 ease-in-out hover:text-gray-500'
           >
             Ekaizen Digital
           </a>

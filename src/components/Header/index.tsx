@@ -1,14 +1,14 @@
 import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Popover, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+
+import { ActiveLink } from '../ActiveLink';
 
 export function Header() {
   const [isComponentMounted, setIsComponentMounted] = useState(false);
   const {systemTheme , theme, setTheme} = useTheme();
-  const { asPath: currentPage } = useRouter();
 
   useEffect(() =>{
     setIsComponentMounted(true);
@@ -26,12 +26,12 @@ export function Header() {
     return (
       <button
         type="button"
-        className="text-gray-500 hover:text-black dark:hover:text-white rounded-lg p-1"
+        className="text-gray-500 hover:text-black dark:hover:text-white rounded-lg p-1 self-center transition-colors duration-500 ease-in-out"
         onClick={() => handleSwitchTheme(currentTheme ?? 'dark')}
       >
         {currentTheme === 'dark'
-          ? <SunIcon className="w-6 h-6" />
-          : <MoonIcon className="w-6 h-6" />
+          ? <SunIcon className="w-6 h-6 font-medium" />
+          : <MoonIcon className="w-6 h-6 font-medium" />
         }
       </button>
     )
@@ -42,7 +42,7 @@ export function Header() {
       <div className="flex justify-start lg:w-0 lg:flex-1">
         <Link
           href="/"
-          className='py-[1px] px-[10px] rounded-md hover:bg-black/5 hover:dark:bg-white/10 font-bold text-2xl'
+          className='py-[1px] px-[10px] font-black rounded-md hover:bg-black/5 hover:dark:bg-white/10 text-2xl'
         >
           E
         </Link>
@@ -62,36 +62,17 @@ export function Header() {
         as="nav"
         className="hidden md:flex space-x-10 font-medium text-center self-center"
       >
-        <Link
-          href='/about'
-          className="text-gray-500 hover:text-black hover:dark:text-white self-center"
-        >
-          <span className={currentPage.includes('about') ? 'text-black dark:text-white' : ''}>
-            About
-          </span>
-        </Link>
+        <ActiveLink href='/about'>
+          <span>About</span>
+        </ActiveLink>
 
-        <Link
-          href='/articles'
-          className="text-gray-500 hover:text-black hover:dark:text-white self-center"
-        >
-          <span
-            className={currentPage.includes('articles') ? 'text-black' : ''}
-          >
-            Articles
-          </span>
-        </Link>
+        <ActiveLink href='/articles'>
+          <span>Articles</span>
+        </ActiveLink>
 
-        <Link
-          href='/projects'
-          className="text-gray-500 hover:text-black hover:dark:text-white self-center"
-        >
-          <span
-            className={currentPage.includes('projects') ? 'text-black' : ''}
-          >
-            Projects
-          </span>
-        </Link>
+        <ActiveLink href='/projects'>
+          <span>Projects</span>
+        </ActiveLink>
 
         {renderThemeButton()}
 
@@ -127,38 +108,17 @@ export function Header() {
 
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <Link
-                  href='/about'
-                  className="font-medium text-gray-500"
-                >
-                  <span
-                    className={currentPage.includes('about') ? 'text-black dark:text-white' : ''}
-                  >
-                    About
-                  </span>
-                </Link>
+                <ActiveLink href='/about'>
+                  <span>About</span>
+                </ActiveLink>
 
-                <Link
-                  href='/articles'
-                  className="font-medium text-gray-500"
-                >
-                  <span
-                    className={currentPage.includes('articles') ? 'text-black dark:text-white' : ''}
-                  >
-                    Articles
-                  </span>
-                </Link>
+                <ActiveLink href='/articles'>
+                  <span>Articles</span>
+                </ActiveLink>
 
-                <Link
-                  href='/projects'
-                  className="font-medium text-gray-500"
-                >
-                  <span
-                    className={currentPage.includes('projects') ? 'text-black dark:text-white' : ''}
-                  >
-                    Projects
-                  </span>
-                </Link>
+                <ActiveLink href='/projects'>
+                  <span>Projects</span>
+                </ActiveLink>
               </div>
             </div>
           </div>

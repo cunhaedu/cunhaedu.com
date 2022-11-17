@@ -25,7 +25,7 @@ export function Footer() {
         >
           <GithubIcon
             size={24}
-            className="text-gray-500 hover:dark:text-white hover:text-github"
+            className="text-gray-500 hover:dark:text-white hover:text-github transition-colors duration-200 ease-in-out"
           />
         </a>
 
@@ -36,7 +36,7 @@ export function Footer() {
         >
           <LinkedinIcon
             size={24}
-            className="text-gray-500 hover:dark:text-white hover:text-linkedin"
+            className="text-gray-500 hover:dark:text-white hover:text-linkedin transition-colors duration-200 ease-in-out"
           />
         </a>
       </div>
