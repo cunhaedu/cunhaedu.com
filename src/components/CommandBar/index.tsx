@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 import {
   BookmarkIcon,
   CodeBracketIcon,
@@ -8,7 +9,9 @@ import {
   EnvelopeIcon,
   HomeIcon,
   LinkIcon,
-  PencilIcon
+  PencilIcon,
+  MoonIcon,
+  SunIcon
 } from '@heroicons/react/24/outline';
 import {
   Action,
@@ -30,6 +33,7 @@ type CommandBarProps = {
 
 export function CommandBar({ children }: CommandBarProps) {
   const [showToast, setShowToast] = useState(false);
+  const { setTheme } = useTheme();
   const router = useRouter();
 
   function handleCopyUrlToClipboard() {
@@ -118,6 +122,28 @@ export function CommandBar({ children }: CommandBarProps) {
       perform: () =>
         window.open('https://www.linkedin.com/in/eduassuncao/', '_blank'),
       icon: <FaLinkedin size={24} />,
+    },
+    {
+      id: 'theme',
+      name: 'Change theme…',
+      keywords: 'change-theme',
+      section: 'General'
+    },
+    {
+      id: 'darkTheme',
+      name: 'Dark',
+      keywords: 'change-theme-to-dark',
+      parent: 'theme',
+      icon: <MoonIcon className='w-6 h-6' />,
+      perform: () => setTheme('dark')
+    },
+    {
+      id: 'lightTheme',
+      name: 'Light',
+      keywords: 'change-theme-to-light',
+      parent: 'theme',
+      icon: <SunIcon className='w-6 h-6' />,
+      perform: () => setTheme('light')
     },
   ]
 
