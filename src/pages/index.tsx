@@ -1,10 +1,8 @@
 import Head from 'next/head';
 
-import { Footer } from '../components/Footer';
-
 export default function Home() {
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-2">
+    <div className="flex min-h-[calc(100vh-8rem-1px)] flex-col items-center justify-center py-2">
       <Head>
         <title>Eduardo Assunção</title>
       </Head>
@@ -20,14 +18,12 @@ export default function Home() {
             href="https://ekaizen.digital/"
             target="_blank"
             rel="noopener noreferrer"
-            className='underline underline-offset-4 transition-colors duration-500 ease-in-out hover:text-gray-500'
+            className='underline underline-offset-4 hover:transition-colors hover:duration-500 ease-in-out hover:text-gray-500'
           >
             Ekaizen Digital
           </a>
         </span>
       </main>
-
-      <Footer />
     </div>
   )
 }

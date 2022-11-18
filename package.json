@@ -10,12 +10,15 @@
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@next/font": "^13.0.3",
+    "@radix-ui/react-toast": "^1.1.2",
+    "classnames": "^2.3.2",
     "kbar": "^0.1.0-beta.38",
     "next": "latest",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
@@ -25,6 +28,7 @@
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "postcss": "^8.4.18",
+    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.2.1",
     "typescript": "4.8.4"
   }
