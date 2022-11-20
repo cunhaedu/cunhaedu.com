@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className="flex flex-col-reverse md:flex-row gap-4 items-center justify-between mb-4 w-full h-16 max-w-2xl mx-auto px-4 lg:max-w-7xl lg:px-8">
       <span className='text-sm text-center text-gray-500'>
-        Copyright © {currentYear} Eduardo Assunção. All rights reserved.
+        Copyright © {currentYear} Eduardo Assunção.
       </span>
 
       <div className='flex gap-4'>

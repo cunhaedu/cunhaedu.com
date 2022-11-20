@@ -71,5 +71,16 @@ module.exports = {
   },
   plugins: [
     require('tailwind-scrollbar'),
+    require("tailwindcss-selection-variant"),
   ],
+  variants: {
+    extend: {
+      textColor: [
+        "selection"
+      ],
+      backgroundColor: [
+        "selection"
+      ],
+    },
+  }
 }

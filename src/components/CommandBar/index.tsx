@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
 import { ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
@@ -57,7 +57,8 @@ export function CommandBar({ children }: CommandBarProps) {
       shortcut: ['e'],
       keywords: 'send-email',
       section: 'General',
-      perform: () => router.push('/contact'),
+      perform: () =>
+        window.open('mailto:cunhaeduardo1231@gmail.com', '_blank', 'noopener,noreferrer'),
       icon: <EnvelopeIcon className='w-6 h-6' />,
     },
     {
@@ -67,7 +68,7 @@ export function CommandBar({ children }: CommandBarProps) {
       keywords: 'view-source',
       section: 'General',
       perform: () =>
-        window.open('https://github.com/cunhaedu/cunhaedu.com', '_blank'),
+        window.open('https://github.com/cunhaedu/cunhaedu.com', '_blank', 'noopener,noreferrer'),
       icon: <CodeBracketIcon className='w-6 h-6' />,
     },
     {
@@ -111,7 +112,7 @@ export function CommandBar({ children }: CommandBarProps) {
       name: 'Github',
       keywords: 'go-github',
       section: 'Social Media',
-      perform: () => window.open('https://github.com/cunhaedu', '_blank'),
+      perform: () => window.open('https://github.com/cunhaedu', '_blank', 'noopener,noreferrer'),
       icon: <FaGithub size={24} />,
     },
     {
@@ -120,14 +121,15 @@ export function CommandBar({ children }: CommandBarProps) {
       keywords: 'go-linkedin',
       section: 'Social Media',
       perform: () =>
-        window.open('https://www.linkedin.com/in/eduassuncao/', '_blank'),
+        window.open('https://www.linkedin.com/in/eduassuncao/', '_blank', 'noopener,noreferrer'),
       icon: <FaLinkedin size={24} />,
     },
     {
       id: 'theme',
       name: 'Change theme…',
       keywords: 'change-theme',
-      section: 'General'
+      section: 'General',
+      icon: <FaToggleOn size={24} />
     },
     {
       id: 'darkTheme',

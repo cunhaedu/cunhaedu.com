@@ -10,6 +10,7 @@ import '../styles/globals.css';
 
 const poppins = Poppins({
   variable: '--font-poppins',
+  subsets: ['latin-ext'],
   weight: ['400', '500', '700', '900'],
 });
 
