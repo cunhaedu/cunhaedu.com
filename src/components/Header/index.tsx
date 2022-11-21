@@ -69,12 +69,12 @@ export function Header() {
               <span>About</span>
             </ActiveLink>
 
-            <ActiveLink href='/articles'>
-              <span>Articles</span>
-            </ActiveLink>
-
             <ActiveLink href='/projects'>
               <span>Projects</span>
+            </ActiveLink>
+
+            <ActiveLink href='/articles'>
+              <span>Articles</span>
             </ActiveLink>
 
             {renderThemeButton()}
@@ -116,12 +116,12 @@ export function Header() {
                       <span>About</span>
                     </Popover.Button>
 
-                    <Popover.Button as={ActiveLink} href="/articles">
-                      <span>Articles</span>
-                    </Popover.Button>
-
                     <Popover.Button as={ActiveLink} href="/projects">
                       <span>Projects</span>
+                    </Popover.Button>
+
+                    <Popover.Button as={ActiveLink} href="/articles">
+                      <span>Articles</span>
                     </Popover.Button>
                   </div>
                 </div>

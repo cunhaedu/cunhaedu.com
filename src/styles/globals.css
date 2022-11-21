@@ -9,7 +9,7 @@
   }
 
   ::selection {
-    @apply text-white bg-indigo-500;
+    @apply text-black bg-[#9580ff];
   }
 
   .btn{

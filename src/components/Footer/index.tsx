@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
   FaGithub as GithubIcon,
-  FaLinkedin as LinkedinIcon
+  FaLinkedin as LinkedinIcon,
+  FaEnvelope as EnvelopeIcon,
 } from 'react-icons/fa';
 
 export function Footer() {
@@ -18,6 +19,17 @@ export function Footer() {
       </span>
 
       <div className='flex gap-4'>
+        <a
+          href="mailto:cunhaeduardo1231@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <EnvelopeIcon
+            size={24}
+            className="text-gray-500 hover:dark:text-white hover:text-rose-600 transition-colors duration-200 ease-in-out"
+          />
+        </a>
+
         <a
           href="https://github.com/cunhaedu"
           target="_blank"

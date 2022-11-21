@@ -36,6 +36,10 @@ module.exports = {
           '900': '#212024',
         }
       },
+      backgroundImage: {
+        'about-gradient': 'linear-gradient(135deg, rgb(149, 128, 255) 0%, rgb(128, 255, 234) 100%)',
+        'projects-gradient': 'linear-gradient(135deg, rgb(128, 255, 234) 0%, rgb(138, 255, 128) 100%)'
+      },
       textColor: {
         linkedin: '#0e76a8',
         github: '#171515',
@@ -71,6 +75,7 @@ module.exports = {
   },
   plugins: [
     require('tailwind-scrollbar'),
+    require('@tailwindcss/line-clamp'),
     require("tailwindcss-selection-variant"),
   ],
   variants: {

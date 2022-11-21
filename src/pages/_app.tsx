@@ -21,7 +21,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <CommandBar>
             <Header />
             <Component {...pageProps} />
-
             <Footer />
           </CommandBar>
         </main>

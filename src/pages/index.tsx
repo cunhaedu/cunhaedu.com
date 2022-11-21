@@ -1,6 +1,10 @@
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import { useKBar } from 'kbar';
 import Head from 'next/head';
 
 export default function Home() {
+  const { query } = useKBar();
+
   return (
     <div className="flex min-h-[calc(100vh-8rem-1px)] flex-col items-center justify-center py-2">
       <Head>
@@ -11,6 +15,7 @@ export default function Home() {
         <h1 className='text-5xl font-bold'>
           Eduardo Assunção
         </h1>
+
         <span className='mt-3'>
           Backend Developer at {' '}
           <br className='md:hidden' />
@@ -23,6 +28,13 @@ export default function Home() {
             Ekaizen Digital
           </a>
         </span>
+
+        <button
+          onClick={query.toggle}
+          className='mt-10 hover:transition-colors hover:duration-500 ease-in-out hover:bg-gray-500/10 p-2 rounded-md'
+        >
+          Get start <ArrowRightIcon className='w-3 h-3 inline-block' />
+        </button>
       </main>
     </div>
   )
