@@ -3,6 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
+  important: true,
   darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -38,7 +39,8 @@ module.exports = {
       },
       backgroundImage: {
         'about-gradient': 'linear-gradient(135deg, rgb(149, 128, 255) 0%, rgb(128, 255, 234) 100%)',
-        'projects-gradient': 'linear-gradient(135deg, rgb(128, 255, 234) 0%, rgb(138, 255, 128) 100%)'
+        'projects-gradient': 'linear-gradient(135deg, rgb(128, 255, 234) 0%, rgb(138, 255, 128) 100%)',
+        'articles-gradient': 'linear-gradient(135deg, #fb923c 0%, #ff80bf 100% )',
       },
       textColor: {
         linkedin: '#0e76a8',

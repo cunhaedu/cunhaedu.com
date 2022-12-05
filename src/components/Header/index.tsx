@@ -38,7 +38,7 @@ export function Header() {
   };
 
   return (
-    <Popover className="w-full h-16 border-b border-gray-400/30 dark:border-none flex justify-between items-center py-2 px-5 md:px-24 lg:px-36">
+    <Popover className="w-full h-16 border-b border-gray-400/30 dark:border-none flex justify-between items-center py-2 px-5 md:px-24 lg:px-36 bg-white dark:bg-black">
       {({ open }) => (
         <>
 

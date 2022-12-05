@@ -1,29 +1,21 @@
-import { Poppins } from '@next/font/google';
-import { ThemeProvider } from 'next-themes';
+import { ReactElement, ReactNode } from 'react';
 import type { AppProps } from 'next/app';
-
-import { CommandBar } from '../components/CommandBar';
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
+import { NextPage } from 'next';
 
 import '../styles/globals.css';
 
-const poppins = Poppins({
-  variable: '--font-poppins',
-  subsets: ['latin-ext'],
-  weight: ['400', '500', '700', '900'],
-});
+export type NextPageWithLayout<P = any, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider enableSystem={true} attribute="class">
-        <main className={`${poppins.variable} font-sans`}>
-          <CommandBar>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-          </CommandBar>
-        </main>
-    </ThemeProvider>
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
+  return getLayout(
+    <Component {...pageProps} />
   )
 }

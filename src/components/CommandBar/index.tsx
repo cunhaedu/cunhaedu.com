@@ -26,6 +26,7 @@ import {
 
 import { ResultItem } from './ResultItem';
 import Toast from '../common/Toast';
+import { SkoobIcon } from '../Icons/Skoob';
 
 type CommandBarProps = {
   children: ReactNode;
@@ -123,6 +124,15 @@ export function CommandBar({ children }: CommandBarProps) {
       perform: () =>
         window.open('https://www.linkedin.com/in/eduassuncao/', '_blank', 'noopener,noreferrer'),
       icon: <FaLinkedin size={24} />,
+    },
+    {
+      id: 'skoob',
+      name: 'Skoob',
+      keywords: 'go-skoob',
+      section: 'Social Media',
+      perform: () =>
+        window.open('https://www.skoob.com.br/share/user/cunhaedu', '_blank', 'noopener,noreferrer'),
+      icon: <SkoobIcon size={24} />,
     },
     {
       id: 'theme',

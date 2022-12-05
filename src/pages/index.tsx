@@ -1,8 +1,11 @@
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import { ReactElement } from 'react';
 import { useKBar } from 'kbar';
 import Head from 'next/head';
 
-export default function Home() {
+import BaseLayout from '../components/Layouts/BaseLayout';
+
+function Home() {
   const { query } = useKBar();
 
   return (
@@ -39,3 +42,13 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      {page}
+    </BaseLayout>
+  )
+}
+
+export default Home;

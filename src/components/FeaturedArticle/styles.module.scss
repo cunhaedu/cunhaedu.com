@@ -1,0 +1,53 @@
+.article {
+  @apply block;
+
+  @apply w-full;
+  @apply md:w-80;
+  @apply lg:w-96;
+}
+
+.container {
+  @apply w-full;
+  @apply flex;
+  @apply flex-col;
+  @apply justify-center;
+  @apply gap-1;
+}
+
+.imageContainer {
+  @apply w-full;
+  @apply md:w-80;
+  @apply lg:w-96;
+  @apply h-48;
+  @apply rounded-lg;
+  @apply mb-5;
+  @apply object-cover;
+  @apply object-center;
+  @apply grayscale;
+  @apply transition-all;
+  @apply duration-700;
+  @apply ease-in-out;
+}
+
+.title {
+  @apply font-medium;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  @apply text-gray-500;
+  @apply overflow-hidden;
+}
+
+.stats {
+  letter-spacing: 1.2px;
+
+  @apply uppercase;
+  @apply inline-block;
+  @apply font-medium;
+  @apply text-xs;
+  @apply mt-3;
+}

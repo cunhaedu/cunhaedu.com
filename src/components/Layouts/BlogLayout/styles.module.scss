@@ -1,0 +1,250 @@
+.wrapper {
+  @apply flex;
+  @apply flex-col;
+  @apply min-h-screen;
+  @apply relative;
+}
+
+.postHeader {
+  background-color: #141618;
+  height: calc(100vh - 64px);
+  z-index: -1;
+
+  @apply w-full;
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply justify-center;
+  @apply relative;
+}
+
+.postHeaderTitle {
+  margin: 59px auto 0;
+  z-index: 3;
+  line-height: 70px;
+
+  @apply text-white;
+  @apply px-2;
+  @apply text-5xl;
+  @apply font-bold;
+  @apply text-center;
+  @apply relative;
+
+  @apply md:text-7xl;
+  @apply md:leading-[90px];
+  @apply md:max-w-[60%];
+}
+
+.postHeaderSubtitle {
+  z-index: 2;
+
+  @apply absolute;
+  @apply bottom-5;
+  @apply w-full;
+  @apply font-medium;
+  @apply text-center;
+  @apply text-white;
+}
+
+.postImage {
+  background-color: #141618;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  will-change: transform;
+
+  &::after {
+    content: "";
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.8) 0,
+      transparent 50%,
+      transparent 90%,
+      rgba(0, 0, 0, 0.8)
+    );
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    will-change: transform;
+  }
+}
+
+.postContentTitle {
+  margin: 90px auto 0;
+  max-width: 'none';
+  line-height: 60px;
+
+  @apply text-5xl;
+  @apply text-center;
+
+  @apply md:mt-0;
+  @apply md:text-7xl;
+  @apply md:leading-[90px];
+  @apply md:max-w-[60%];
+}
+
+.postSubtitle {
+  @apply text-base;
+  @apply font-medium;
+  @apply text-center;
+}
+
+.postContentSubtitle {
+  margin: 0 0 60px;
+
+  @apply text-base;
+  @apply font-medium;
+  @apply text-center;
+}
+
+.postContainer {
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 0 20px;
+}
+
+.postContent {
+  lineHeight: 32px;
+  position: relative;
+  height: 100%;
+  padding: 20px 0;
+
+  @apply text-gray-500;
+  @apply font-light;
+
+  div > p > a {
+    @apply text-black dark:text-white;
+    @apply underline underline-offset-2;
+    @apply transition-opacity duration-300 ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  div > p > strong, div > p > em > strong {
+    @apply text-black dark:text-white;
+  }
+
+  div > h2 {
+    @apply font-medium;
+    @apply text-2xl;
+    @apply mt-16 mb-5;
+    @apply text-black dark:text-white;
+  }
+
+  div > p {
+    @apply my-5;
+    // @apply text-sm;
+    @apply font-light;
+    @apply leading-loose;
+  }
+
+  div > ul {
+    @apply list-disc;
+    @apply ml-10;
+  }
+
+  div > ul > li {
+    // @apply text-sm;
+    @apply font-light;
+    @apply leading-loose;
+  }
+
+  div > blockquote {
+    @apply border-l-4 border-gray-500;
+    @apply italic;
+    @apply pl-5;
+  }
+
+  div > figure {
+    img {
+      @apply rounded-lg min-w-full max-w-full;
+    }
+
+    figcaption {
+      @apply text-center italic text-sm py-2;
+    }
+  }
+
+  &.iframe-wrap {
+    height: 0;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+  }
+
+  &.iframe-wrap iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &.post-image-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  &.post-image-full {
+    margin: 20px 0 0;
+    max-width: initial;
+    width: 70vw;
+
+    @apply md:ml-[calc(-1*(70vw-760px)/2)];
+    @apply lg:ml-0;
+  }
+
+  &.side-by-side {
+    display: flex;
+    width: 90vw;
+    margin: 40px 0;
+    flexDirection: row;
+
+    @apply md:ml-[calc(-1*(90vw-760px)/2)];
+    @apply lg:ml-0;
+    @apply lg:flex-col;
+  }
+
+  &.side-by-side-img {
+    min-width: 50%;
+
+    @apply md:min-w-full;
+  }
+
+  &.side-by-side-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: -30;
+  }
+}
+
+.postMain {
+  @apply py-[110px];
+  @apply px-0;
+  @apply overflow-hidden;
+
+  @apply md:py-[60px];
+  @apply md:px-0;
+}
+
+.post {
+  flex: 1 1;
+  overflow: hidden;
+}

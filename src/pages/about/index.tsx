@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { ReactElement } from 'react';
 
 import ProfileImg from '../../../public/assets/profile.png';
+import BaseLayout from '../../components/Layouts/BaseLayout';
 
-export default function About() {
+function About() {
   return (
     <div className='w-full p-10 md:p-0'>
       <div className='mx-auto my-10 md:my-auto flex flex-col-reverse md:flex-row align-middle items-center justify-between md:min-h-[calc(100vh-8rem-1px)] max-w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl'>
@@ -22,8 +24,8 @@ export default function About() {
           </p>
         </section>
 
-        <section className='max-w-full min-h-full md:max-w-[50%] mx-auto mb-10 md:mb-0'>
-          <div className='hidden md:block bg-gradient-to-br from-indigo-700 to-indigo-400 w-64 h-72 md:w-80 md:h-96 z-0 absolute -rotate-6 rounded-md' />
+        <section className='group max-w-full min-h-full md:max-w-[50%] mx-auto mb-10 md:mb-0'>
+          <div className='hidden md:block bg-gradient-to-br from-indigo-700 to-indigo-400 w-64 h-72 md:w-80 md:h-96 z-0 absolute transition-transform duration-500 -rotate-6 group-hover:rotate-0 rounded-md' />
           <Image
             src={ProfileImg}
             alt="Foto de perfil Eduardo"
@@ -37,3 +39,13 @@ export default function About() {
     </div>
   )
 }
+
+About.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      {page}
+    </BaseLayout>
+  )
+}
+
+export default About;

@@ -1,7 +1,10 @@
-import { ProjectDetail } from '../../components/ProjectDetail';
-import { projectsMock } from '../../mocks/projects.mocks';
+import { ReactElement } from 'react';
 
-export default function Projects() {
+import BaseLayout from '../../components/Layouts/BaseLayout';
+import { ProjectDetail } from '../../components/ProjectDetail';
+import { projects } from '../../data/projects';
+
+function Projects() {
   return (
     <div className='w-full p-10 md:p-0 selection:bg-emerald-500/90'>
       <div className='mx-auto my-10 md:my-3 md:min-h-[calc(100vh-8rem-1px)] max-w-full md:max-w-screen-md lg:max-w-screen-lg'>
@@ -17,7 +20,7 @@ export default function Projects() {
 
         <section className='flex align-middle items-center justify-center'>
           <div className="my-10 grid items-center grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-            {projectsMock.map(project => (
+            {projects.map(project => (
               <ProjectDetail key={project.slug} data={project} />
             ))}
           </div>
@@ -26,3 +29,13 @@ export default function Projects() {
     </div>
   )
 }
+
+Projects.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      {page}
+    </BaseLayout>
+  )
+}
+
+export default Projects;

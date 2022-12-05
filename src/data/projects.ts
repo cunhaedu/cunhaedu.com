@@ -1,4 +1,4 @@
-export const projectsMock = [
+export const projects = [
   {
     slug: 'plenitude-website',
     title: 'Plenitude church website',
