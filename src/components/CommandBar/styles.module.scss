@@ -1,0 +1,54 @@
+.KBarPositioner {
+  @apply fixed;
+  @apply flex;
+  @apply items-start;
+  @apply justify-center;
+  @apply w-full;
+  @apply inset-0;
+  @apply pt-[14vh];
+  @apply pb-4;
+  @apply px-4;
+  @apply bg-modal-dark-transparent;
+  @apply box-border;
+}
+
+.KBarAnimator {
+  @apply bg-white;
+  @apply max-w-[600px];
+  @apply w-full;
+  @apply text-white;
+  @apply rounded-lg;
+  @apply overflow-hidden;
+}
+
+.KBarSearch {
+  @apply font-kbar;
+  @apply py-3;
+  @apply px-4;
+  @apply w-full;
+  @apply box-border;
+  @apply outline-none;
+  @apply border-none;
+  @apply m-0;
+  @apply text-gray-500;
+  @apply bg-white/5;
+
+  > div > div::-webkit-scrollbar {
+    @apply hidden;
+  }
+
+  > div > div {
+    @apply scrollbar-none;
+  }
+}
+
+.KbarResultText {
+  @apply font-kbar;
+  @apply bg-white/5;
+  @apply text-black;
+  @apply text-[10px];
+  @apply uppercase;
+  @apply tracking-[1px];
+  @apply py-2;
+  @apply px-4;
+}

@@ -1,0 +1,35 @@
+.result_item {
+  @apply py-3;
+  @apply px-4;
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+  @apply m-0;
+  @apply cursor-pointer;
+}
+
+.result_item__action_container {
+  @apply flex;
+  @apply gap-2;
+  @apply items-center;
+
+  > div {
+    @apply flex;
+    @apply flex-col;
+    @apply font-kbar;
+  }
+}
+
+.result_item__shortcut_container {
+  @apply grid;
+  @apply grid-flow-col;
+  @apply gap-1;
+
+  > kbd {
+    @apply uppercase;
+    @apply py-1;
+    @apply px-2;
+    @apply text-gray-500;
+    @apply bg-gray-300/60;
+  }
+}

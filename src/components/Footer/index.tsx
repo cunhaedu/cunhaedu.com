@@ -10,7 +10,7 @@ import cls from 'classnames';
 import styles from './styles.module.scss';
 
 export function Footer() {
-  const [currentYear, setCurrentYear] = useState(2022);
+  const [currentYear, setCurrentYear] = useState(2023);
 
   useEffect(() =>{
     setCurrentYear(new Date().getFullYear());

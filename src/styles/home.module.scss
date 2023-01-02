@@ -49,3 +49,24 @@
     }
   }
 }
+
+.desktop_start_text {
+  @apply font-semibold;
+
+  kbd {
+    padding: 1px 5px;
+    @apply text-sm;
+    @apply text-black;
+    @apply p-1;
+    @apply bg-gray-400;
+    @apply rounded;
+
+    &:first-child {
+      @apply mx-1;
+    }
+
+    &:not(:first-child) {
+      @apply mr-1;
+    }
+  }
+}
