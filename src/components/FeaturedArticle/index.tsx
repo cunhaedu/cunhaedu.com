@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import readingTime from 'reading-time';
 import styles from './styles.module.scss';
+import cls from 'classnames'
 
 type FeaturedArticleProps = {
   key: number | string;
@@ -17,18 +18,18 @@ export function FeaturedArticle(props: FeaturedArticleProps) {
 
   return (
     <a className={styles.article} href={props.href}>
-      <div className={`${styles.container} group`}>
+      <div className={cls(styles.container, 'group')}>
         <Image
           src={props.image}
           alt={props.title}
           width={384}
           height={192}
-          className={`${styles.imageContainer} group-hover:grayscale-0`}
+          className='group-hover:grayscale-0'
         />
 
-        <h3 className={styles.title}>{props.title}</h3>
-        <p className={styles.description}>{props.description}</p>
-        <p className={styles.stats}>{stats.text}</p>
+        <h3>{props.title}</h3>
+        <p>{props.description}</p>
+        <p>{stats.text}</p>
       </div>
     </a>
   )

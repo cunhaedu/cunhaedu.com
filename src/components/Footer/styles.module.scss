@@ -1,0 +1,43 @@
+.footer {
+  @apply bg-white;
+  @apply w-full;
+  @apply relative;
+
+  > div {
+    @apply bg-white;
+    @apply flex;
+    @apply flex-col-reverse;
+    @apply gap-4;
+    @apply items-center;
+    @apply justify-between;
+    @apply mx-auto;
+    @apply pb-4;
+    @apply px-4;
+    @apply w-full;
+    @apply h-16;
+    @apply max-w-2xl;
+    @apply md:flex-row;
+    @apply lg:max-w-7xl;
+    @apply lg:px-8;
+  }
+}
+
+.footer__copyright {
+  @apply text-sm;
+  @apply text-center;
+  @apply text-gray-500;
+}
+
+.footer__links {
+  @apply flex;
+  @apply gap-4;
+}
+
+.footer__link_icon {
+  @apply w-6;
+  @apply h-6;
+  @apply text-gray-500;
+  @apply transition-colors;
+  @apply duration-200;
+  @apply ease-in-out;
+}

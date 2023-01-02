@@ -1,0 +1,8 @@
+.active_link {
+  @apply text-gray-500;
+  @apply hover:text-black;
+  @apply self-center;
+  @apply transition-colors;
+  @apply duration-500;
+  @apply ease-in-out;
+}

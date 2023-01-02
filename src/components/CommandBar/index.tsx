@@ -58,8 +58,11 @@ export function CommandBar({ children }: CommandBarProps) {
       shortcut: ['e'],
       keywords: 'send-email',
       section: 'General',
-      perform: () =>
-        window.open('mailto:cunhaeduardo1231@gmail.com', '_blank', 'noopener,noreferrer'),
+      perform: () => window.open(
+        'mailto:cunhaeduardo1231@gmail.com',
+        '_blank',
+        'noopener,noreferrer'
+      ),
       icon: <EnvelopeIcon className='w-6 h-6' />,
     },
     {
@@ -68,8 +71,11 @@ export function CommandBar({ children }: CommandBarProps) {
       shortcut: ['s'],
       keywords: 'view-source',
       section: 'General',
-      perform: () =>
-        window.open('https://github.com/cunhaedu/cunhaedu.com', '_blank', 'noopener,noreferrer'),
+      perform: () => window.open(
+        'https://github.com/cunhaedu/cunhaedu.com',
+        '_blank',
+        'noopener,noreferrer'
+      ),
       icon: <CodeBracketIcon className='w-6 h-6' />,
     },
     {
@@ -113,7 +119,11 @@ export function CommandBar({ children }: CommandBarProps) {
       name: 'Github',
       keywords: 'go-github',
       section: 'Social Media',
-      perform: () => window.open('https://github.com/cunhaedu', '_blank', 'noopener,noreferrer'),
+      perform: () => window.open(
+        'https://github.com/cunhaedu',
+        '_blank',
+        'noopener,noreferrer'
+      ),
       icon: <FaGithub size={24} />,
     },
     {
@@ -121,8 +131,11 @@ export function CommandBar({ children }: CommandBarProps) {
       name: 'Linkedin',
       keywords: 'go-linkedin',
       section: 'Social Media',
-      perform: () =>
-        window.open('https://www.linkedin.com/in/eduassuncao/', '_blank', 'noopener,noreferrer'),
+      perform: () => window.open(
+        'https://www.linkedin.com/in/eduassuncao/',
+        '_blank',
+        'noopener,noreferrer'
+      ),
       icon: <FaLinkedin size={24} />,
     },
     {
@@ -130,8 +143,11 @@ export function CommandBar({ children }: CommandBarProps) {
       name: 'Skoob',
       keywords: 'go-skoob',
       section: 'Social Media',
-      perform: () =>
-        window.open('https://www.skoob.com.br/share/user/cunhaedu', '_blank', 'noopener,noreferrer'),
+      perform: () => window.open(
+        'https://www.skoob.com.br/share/user/cunhaedu',
+        '_blank',
+        'noopener,noreferrer'
+      ),
       icon: <SkoobIcon size={24} />,
     },
     {

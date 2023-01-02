@@ -1,6 +1,9 @@
 import { ReactElement, cloneElement } from 'react';
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
+import cls from 'classnames';
+
+import styles from './styles.module.scss';
 
 type ActiveLinkProps = LinkProps & {
   children: ReactElement;
@@ -14,9 +17,9 @@ export function ActiveLink({ children, ...props }: ActiveLinkProps) {
     : asPath.includes(String(props.href));
 
   return (
-    <Link {...props} className="text-gray-500 hover:text-black hover:dark:text-white self-center transition-colors duration-500 ease-in-out">
+    <Link {...props} className={cls(styles.active_link, "hover:dark:text-white")}>
       {cloneElement(children, {
-        className: isCurrentPath ? 'text-black dark:text-white' : '',
+        className: cls({'text-black dark:text-white': isCurrentPath}),
       })}
     </Link>
   )

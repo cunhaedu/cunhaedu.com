@@ -16,7 +16,7 @@ const poppins = Poppins({
 
 export default function BaseLayout({ children }: LayoutProps) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider enableSystem attribute="class">
       <main className={`${poppins.variable} font-sans`}>
         <CommandBar>
           <Header />

@@ -1,0 +1,70 @@
+.technology {
+  @apply flex;
+  @apply items-center;
+  @apply gap-2;
+}
+
+.technology_detail {
+  padding: 2px 8px;
+  @apply text-xs;
+  @apply text-gray-500;
+  @apply border;
+  @apply border-gray-500;
+  @apply rounded-md;
+  @apply hover:bg-gray-500/10;
+  @apply cursor-default;
+}
+
+.project_detail {
+  background-color: #FFF;
+  @apply p-2;
+  @apply w-80;
+  @apply rounded-md;
+  @apply shadow-gray-500;
+  @apply hover:shadow-md;
+  @apply hover:transition-colors;
+  @apply hover:duration-500;
+
+  > img {
+    @apply object-cover;
+    @apply rounded-md;
+  }
+
+  > p {
+    @apply line-clamp-2;
+    @apply text-gray-500;
+  }
+}
+
+.project_detail__header {
+  @apply my-3;
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+
+  > p {
+    @apply font-medium;
+  }
+}
+
+.project_detail__external_link {
+  @apply hover:transition-colors;
+  @apply hover:duration-300;
+  @apply hover:text-emerald-600;
+}
+
+.project_detail__footer {
+  @apply flex;
+  @apply items-center;
+  @apply align-middle;
+  @apply justify-between;
+  @apply my-2;
+
+  > a {
+    @apply underline-offset-4;
+    @apply text-emerald-600;
+    @apply hover:underline;
+    @apply hover:text-emerald-600;
+    @apply md:text-gray-500;
+  }
+}

@@ -1,0 +1,151 @@
+.header {
+  @apply bg-white;
+  @apply w-full;
+  @apply h-16;
+  @apply flex;
+  @apply justify-between;
+  @apply items-center;
+  @apply py-2;
+  @apply px-5;
+  @apply border-b;
+  @apply border-gray-400/30;
+  @apply md:px-24;
+  @apply lg:px-36;
+}
+
+.header__main_link_container {
+  @apply flex;
+  @apply justify-start;
+  @apply lg:w-0;
+  @apply lg:flex-1;
+
+  a {
+    padding: 1px 10px;
+    @apply font-black;
+    @apply rounded-md;
+    @apply text-2xl;
+    @apply hover:bg-black/5;
+  }
+}
+
+.header__hamburger_menu_container {
+  @apply -mr-2;
+  @apply -my-2;
+  @apply md:hidden;
+
+  > button {
+    @apply rounded-md;
+    @apply p-2;
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply text-gray-500;
+    @apply hover:text-gray-500;
+  }
+}
+
+.header__theme_button_container {
+  @apply flex;
+  @apply justify-end;
+  @apply ml-auto;
+  @apply mr-3;
+  @apply md:hidden;
+}
+
+.button__theme {
+  @apply text-gray-500;
+  @apply hover:text-black;
+  @apply rounded-lg;
+  @apply p-1;
+  @apply self-center;
+  @apply transition-colors;
+  @apply duration-500;
+  @apply ease-in-out;
+}
+
+.button__theme_icon {
+  @apply w-6;
+  @apply h-6;
+  @apply font-medium;
+}
+
+.header__links_group {
+  @apply hidden;
+  @apply md:flex;
+  @apply space-x-10;
+  @apply font-medium;
+  @apply text-center;
+  @apply self-center;
+}
+
+.header__mobile {
+  @apply absolute;
+  @apply top-0;
+  @apply inset-x-0;
+  @apply p-2;
+  @apply transition;
+  @apply transform;
+  @apply origin-top-right;
+  @apply md:hidden;
+
+  > div {
+    @apply bg-white;
+    @apply rounded-lg;
+    @apply shadow-lg;
+    @apply ring-1;
+    @apply ring-black;
+    @apply ring-opacity-5;
+    @apply divide-y-2;
+  }
+}
+
+.header__mobile__main_content {
+  @apply pt-5;
+  @apply pb-6;
+  @apply px-5;
+
+  > div {
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+  }
+}
+
+.header__mobile__main_content_link {
+  padding: 1px 10px;
+  @apply rounded-md;
+  @apply hover:bg-black/5;
+  @apply font-bold;
+  @apply text-2xl;
+}
+
+.header__mobile__main_content_close_icon_container {
+  @apply -mr-2;
+
+  > button {
+    @apply rounded-md;
+    @apply p-2;
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply text-gray-400;
+    @apply hover:text-gray-500;
+    @apply focus:outline-none;
+    @apply focus:ring-2;
+    @apply focus:ring-inset;
+    @apply focus:ring-indigo-500;
+  }
+}
+
+.header__mobile__links_group_container {
+  @apply py-6;
+  @apply px-5;
+  @apply space-y-6;
+
+  > div {
+    @apply grid;
+    @apply grid-cols-2;
+    @apply gap-y-4;
+    @apply gap-x-8;
+  }
+}

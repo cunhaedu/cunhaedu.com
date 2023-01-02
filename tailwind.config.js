@@ -78,6 +78,7 @@ module.exports = {
   plugins: [
     require('tailwind-scrollbar'),
     require('@tailwindcss/line-clamp'),
+    require("tailwindcss-hyphens"),
     require("tailwindcss-selection-variant"),
   ],
   variants: {

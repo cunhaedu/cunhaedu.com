@@ -1,0 +1,51 @@
+.home {
+  @apply flex;
+  @apply min-h-[calc(100vh-8rem-1px)];
+  @apply flex-col;
+  @apply items-center;
+  @apply justify-center;
+  @apply py-2;
+
+  > main {
+    @apply flex;
+    @apply w-full;
+    @apply flex-1;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+    @apply px-20;
+    @apply text-center;
+
+    > h1 {
+      @apply text-5xl;
+      @apply font-bold;
+    }
+
+    > button {
+      @apply hover:transition-colors;
+      @apply hover:duration-500;
+      @apply hover:bg-gray-500/10;
+      @apply ease-in-out;
+      @apply rounded-md;
+      @apply mt-10;
+      @apply p-2;
+    }
+
+    > span {
+      @apply mt-3;
+
+      > br {
+        @apply md:hidden
+      }
+
+      > a {
+        @apply underline;
+        @apply underline-offset-4;
+        @apply hover:transition-colors;
+        @apply hover:duration-500;
+        @apply hover:text-gray-500;
+        @apply ease-in-out;
+      }
+    }
+  }
+}

@@ -42,7 +42,7 @@ export default function BlogLayout({ children }: LayoutProps) {
   }
 
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider enableSystem attribute="class">
       <main className={`${poppins.variable} font-sans`}>
         <CommandBar>
           <Header />

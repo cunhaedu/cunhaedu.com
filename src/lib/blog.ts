@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
+import prism from 'remark-prism';
 import { remark } from 'remark';
 import html from 'remark-html';
-import prism from 'remark-prism';
+import { join } from 'node:path';
 
 const postsDirectory = join(process.cwd(), 'data', 'articles')
 
@@ -12,12 +12,12 @@ export function getPostSlugs() {
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const realSlug = slug.replace(/\.md$/, '');
+  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
 
-  const items: any = {}
+  const items: any = {};
 
   fields.forEach(field => {
     if (field === 'slug') {
@@ -31,25 +31,25 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (data[field]) {
       items[field] = data[field]
     }
-  })
+  });
 
-  return items
+  return items;
 }
 
 export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs()
+  const slugs = getPostSlugs();
   const posts = slugs
     .map(slug => getPostBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
-  return posts
+  return posts;
 }
 
 export async function convertMarkdownToHtml(markdown: string) {
   const result = await remark()
     .use(html, { sanitize: false })
     .use(prism)
-    .process(markdown)
+    .process(markdown);
 
-  return result.toString()
+  return result.toString();
 }

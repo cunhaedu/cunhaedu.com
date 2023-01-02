@@ -56,7 +56,7 @@ const Post: NextPageWithLayout = (props: PostProps) => {
       </Head>
 
       <ArticleJsonLd
-        authorName="Zeno Rocha"
+        authorName="Eduardo Assunção"
         type="Blog"
         url={url}
         title={title}

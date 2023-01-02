@@ -1,9 +1,12 @@
 import { GetStaticProps } from 'next';
+import Image from 'next/image';
 import { ReactElement } from 'react';
 
 import { FeaturedArticle } from '../../components/FeaturedArticle'
 import BaseLayout from '../../components/Layouts/BaseLayout';
 import { getAllPosts, getPostBySlug } from '../../lib/blog';
+
+import styles from './styles.module.scss';
 
 type Article = {
   content: string;
@@ -20,7 +23,7 @@ type ArticlesProps = {
   allPosts: Article[];
 }
 
-function Articles({ featuredPosts }: ArticlesProps) {
+function Articles({ featuredPosts, allPosts }: ArticlesProps) {
   function renderFeatured() {
     return featuredPosts.map((post, index) => {
       return (
@@ -37,52 +40,54 @@ function Articles({ featuredPosts }: ArticlesProps) {
     })
   }
 
-  // function renderAll() {
-  //   return allPosts.map((post, index) => {
-  //     if (!post.skip) {
-  //       return (
-  //         // <ListItem
-  //         //   key={index}
-  //         //   index={index}
-  //         //   href={`/${post.slug}/`}
-  //         //   title={post.title}
-  //         //   date={post.date}
-  //         // />
+  function renderAll() {
+    return allPosts.map(post => (
+      <div key={post.slug} className={styles.article__post_container}>
+        <div>
+          <p>{post.title}</p>
+          <span>{post.description}</span>
+        </div>
 
-  //         <p key={index}>{post.title}</p>
-  //       )
-  //     }
-  //   })
-  // }
+        <Image
+          src={post.image}
+          alt={post.title}
+          height={150}
+          width={250}
+        />
+      </div>
+    ))
+  }
 
   return (
-    <div className='w-full md:p-0 selection:bg-orange-400'>
-      <div className='mx-auto my-10 md:my-3 md:min-h-[calc(100vh-8rem-1px)] max-w-full md:max-w-screen-md lg:max-w-screen-lg'>
-        <section className='mt-5 p-5 xl:p-0 text-center lg:text-left'>
-          <h1 className='font-bold text-4xl md:text-5xl mb-5 mt-2 bg-orange-400 dark:bg-articles-gradient text-transparent bg-clip-text'>
+    <div className={styles.article}>
+      <div>
+        <section className={styles.article__header}>
+          <h1 className='dark:bg-articles-gradient'>
             Articles
           </h1>
 
-          <p className='text-gray-500'>
-            Here you can find all the articles I&apos;ve been writing about web development.
+          <p>
+            Here you can find all the articles I&apos;ve been writing about web
+            development.
           </p>
 
-          <h2 className='my-8 text-2xl font-medium'>Featured Articles</h2>
+          <h2>Featured Articles</h2>
 
-          <div className='my-5 grid grid-cols-1 md:grid-cols-2 gap-16'>
-            {renderFeatured()}
-          </div>
+          <div>{renderFeatured()}</div>
+        </section>
+
+        <section className={styles.article__all_articles}>
+          <h1>All Articles</h1>
+
+          {renderAll()}
         </section>
       </div>
-
-      {/* <h2>All Articles</h2> */}
-      {/* <ListGroup>{renderAll()}</ListGroup> */}
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const allPosts = getAllPosts(['date', 'skip', 'slug', 'title']);
+  const allPosts = getAllPosts(['date', 'slug', 'title', 'description', 'image']);
 
   const featuredParams = [
     'date',
@@ -91,12 +96,12 @@ export const getStaticProps: GetStaticProps = () => {
     'image',
     'content',
     'description',
-  ]
+  ];
 
   const featuredPosts = [
     getPostBySlug('how-to-work-with-typeorm-tree-entities-part-1', featuredParams),
     getPostBySlug('how-to-work-with-typeorm-tree-entities-part-1', featuredParams),
-  ]
+  ];
 
   return {
     props: {
