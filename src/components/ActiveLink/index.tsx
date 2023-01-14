@@ -17,7 +17,7 @@ export function ActiveLink({ children, ...props }: ActiveLinkProps) {
     : asPath.includes(String(props.href));
 
   return (
-    <Link {...props} className={cls(styles.active_link, "hover:dark:text-white")}>
+    <Link {...props} className={cls(styles.active_link, 'hover:dark:text-white')}>
       {cloneElement(children, {
         className: cls({'text-black dark:text-white': isCurrentPath}),
       })}

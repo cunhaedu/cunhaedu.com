@@ -2,7 +2,8 @@ export const projects = [
   {
     slug: 'plenitude-website',
     title: 'Plenitude church website',
-    cover: '/assets/projects/plenitude-website.png',
+    cover: '/assets/projects/plenitude_website/cover.png',
+    presentation: '/assets/projects/plenitude_website/presentation.png',
     github: 'https://github.com/cunhaedu/plenitude-website',
     behance: null,
     description: 'This is a website created to a church in my city with branches in another cities of São Paulo.',

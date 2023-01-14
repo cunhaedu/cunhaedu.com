@@ -66,11 +66,16 @@
 
 .article__post_container {
   @apply w-full;
-  @apply h-36;
+  @apply h-40;
   @apply lg:w-[90%];
   @apply flex;
   @apply justify-between;
   @apply items-center;
+  @apply px-5;
+  @apply bg-[#FFF];
+  @apply border;
+  @apply border-gray-200;
+  @apply rounded-md;
 
   > div {
     @apply md:pr-10;

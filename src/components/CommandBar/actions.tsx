@@ -15,19 +15,42 @@ import { Action } from 'kbar';
 
 import { SkoobIcon } from '../Icons/Skoob';
 
+type ToastOptions = {
+  title: string;
+  description: string;
+  type: 'success' | 'error';
+}
+
+type CopyUrlRequest = {
+  setShowToast: (value: boolean) => void;
+  setToastOptions: (value: ToastOptions) => void;
+}
+
 type RetrieveCommandBarActions ={
   setShowToast: (value: boolean) => void;
+  setToastOptions: (value: ToastOptions) => void;
   setTheme: (theme: string) => void;
   router: NextRouter;
 }
 
-function handleCopyUrlToClipboard({setShowToast }: RetrieveCommandBarActions) {
-  navigator.clipboard.writeText(window.location.href);
+async function handleCopyUrlToClipboard({setShowToast, setToastOptions }: CopyUrlRequest) {
+  if (!navigator?.clipboard) {
+    setToastOptions({
+      description: 'Your browser does not support clipboard',
+      title: 'Clipboard not supported',
+      type: 'error',
+    })
+    setShowToast(true);
+    return;
+  }
+
+  await navigator.clipboard.writeText(window.location.href);
   setShowToast(true);
 }
 
 export function retrieveCommandBarActions({
   setShowToast,
+  setToastOptions,
   router,
   setTheme
 }: RetrieveCommandBarActions): Action[] {
@@ -38,7 +61,7 @@ export function retrieveCommandBarActions({
       shortcut: ['l'],
       keywords: 'copy-link',
       section: 'General',
-      perform: () => handleCopyUrlToClipboard({ setShowToast, router, setTheme }),
+      perform: () => handleCopyUrlToClipboard({ setShowToast, setToastOptions }),
       icon: <LinkIcon className='w-6 h-6' />,
     },
     {

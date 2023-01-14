@@ -4,14 +4,21 @@ import { Fragment, useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import cls from 'classnames';
+import {
+  FaGithub as GithubIcon,
+  FaLinkedin as LinkedinIcon,
+  FaEnvelope as EnvelopeIcon,
+} from 'react-icons/fa';
 
 import { ActiveLink } from '../ActiveLink';
 
 import styles from './styles.module.scss';
+import { useRouter } from 'next/router';
 
 export function Header() {
   const [isComponentMounted, setIsComponentMounted] = useState(false);
   const {systemTheme , theme, setTheme} = useTheme();
+  const router = useRouter();
 
   useEffect(() =>{
     setIsComponentMounted(true);
@@ -89,19 +96,10 @@ export function Header() {
             show={open}
           >
             <Popover.Panel static focus className={styles.header__mobile}>
-              <div className="dark:bg-black dark:divide-gray-500 ">
+              <div className="dark:bg-black">
 
                 <div className={styles.header__mobile__main_content}>
                   <div>
-                    <Popover.Button as={Link}
-                      href="/"
-                      className={cls(
-                        styles.header__mobile__main_content_link,
-                        'hover:dark:bg-white/10'
-                      )}
-                    >
-                      E
-                    </Popover.Button>
                     <div className={styles.header__mobile__main_content_close_icon_container}>
                       <Popover.Button>
                         <span className="sr-only">Close menu</span>
@@ -113,17 +111,55 @@ export function Header() {
 
                 <div className={styles.header__mobile__links_group_container}>
                   <div>
-                    <Popover.Button as={ActiveLink} href="/about">
-                      <span>About</span>
+                  <Popover.Button
+                      className="hover:dark:text-white"
+                      onClick={() => router.push("/")}
+                    >
+                      Home
                     </Popover.Button>
 
-                    <Popover.Button as={ActiveLink} href="/projects">
-                      <span>Projects</span>
+                    <Popover.Button
+                      className="hover:dark:text-white"
+                      onClick={() => router.push("/about")}
+                    >
+                      About
                     </Popover.Button>
 
-                    <Popover.Button as={ActiveLink} href="/articles">
-                      <span>Articles</span>
+                    <Popover.Button
+                      className="hover:dark:text-white"
+                      onClick={() => router.push("/projects")}
+                    >
+                      Projects
                     </Popover.Button>
+
+                    <Popover.Button
+                      className="hover:dark:text-white"
+                      onClick={() => router.push("/articles")}
+                    >
+                      Articles
+                    </Popover.Button>
+
+                    <div>
+                      <a
+                        href="https://github.com/cunhaedu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <GithubIcon size={28} />
+                      </a>
+
+                      <a
+                        href="https://www.linkedin.com/in/eduassuncao/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <LinkedinIcon size={28} />
+                      </a>
+
+                      <a href='mailto:cunhaeduardo1231@gmail.com'>
+                        <EnvelopeIcon size={28} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

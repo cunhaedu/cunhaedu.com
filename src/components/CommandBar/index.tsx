@@ -22,19 +22,26 @@ type CommandBarProps = {
   children: ReactNode;
 }
 
+type ToastOptions = {
+  title: string;
+  description: string;
+  type: 'success' | 'error';
+}
+
 export function CommandBar({ children }: CommandBarProps) {
   const [showToast, setShowToast] = useState(false);
+  const [toastOptions, setToastOptions] = useState<ToastOptions>({
+    title: 'Copied :D',
+    description: 'You can now share it with anyone.',
+    type: 'success'
+  });
+
   const { setTheme } = useTheme();
   const router = useRouter();
 
-  function handleCopyUrlToClipboard() {
-    navigator.clipboard.writeText(window.location.href);
-    setShowToast(true);
-  }
-
   return (
     <>
-      <KBarProvider actions={retrieveCommandBarActions({ setShowToast, setTheme, router })}>
+      <KBarProvider actions={retrieveCommandBarActions({ setShowToast, setToastOptions, setTheme, router })}>
         <KBarPortal>
           <KBarPositioner className={styles.KBarPositioner}>
             <KBarAnimator
@@ -55,9 +62,9 @@ export function CommandBar({ children }: CommandBarProps) {
       </KBarProvider>
 
       <Toast
-        title="Copied :D"
-        description="You can now share it with anyone."
-        type='success'
+        title={toastOptions.title}
+        description={toastOptions.description}
+        type={toastOptions.type}
         showToast={showToast}
         setShowToast={setShowToast}
       />

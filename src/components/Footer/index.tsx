@@ -11,10 +11,17 @@ import styles from './styles.module.scss';
 
 export function Footer() {
   const [currentYear, setCurrentYear] = useState(2023);
+  const [mounted, setMounted] = useState(false);
+  let isMobile = false;
 
   useEffect(() =>{
+    setMounted(true);
     setCurrentYear(new Date().getFullYear());
   },[]);
+
+  if (mounted) {
+    isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+  }
 
   return (
     <footer className={cls(styles.footer, 'dark:bg-black')}>
@@ -25,7 +32,10 @@ export function Footer() {
 
         <div className={styles.footer__links}>
           <a
-            href="https://www.skoob.com.br/share/user/cunhaedu"
+            href={isMobile
+              ? 'https://www.skoob.com.br/share/user/cunhaedu'
+              : 'https://www.skoob.com.br/usuario/8265273'
+            }
             target="_blank"
             rel="noopener noreferrer"
           >

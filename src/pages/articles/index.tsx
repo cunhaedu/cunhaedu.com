@@ -1,12 +1,14 @@
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
 import { ReactElement } from 'react';
+import Image from 'next/image';
+import clx from 'classnames';
 
 import { FeaturedArticle } from '../../components/FeaturedArticle'
 import BaseLayout from '../../components/Layouts/BaseLayout';
 import { getAllPosts, getPostBySlug } from '../../lib/blog';
 
 import styles from './styles.module.scss';
+import Link from 'next/link';
 
 type Article = {
   content: string;
@@ -42,19 +44,27 @@ function Articles({ featuredPosts, allPosts }: ArticlesProps) {
 
   function renderAll() {
     return allPosts.map(post => (
-      <div key={post.slug} className={styles.article__post_container}>
-        <div>
-          <p>{post.title}</p>
-          <span>{post.description}</span>
-        </div>
-
+      <Link
+        href={`/articles/${post.slug}`}
+        key={post.slug}
+        className={clx(
+          styles.article__post_container,
+          'dark:bg-gray-900/40 dark:border-none'
+        )}
+      >
         <Image
           src={post.image}
           alt={post.title}
           height={150}
           width={250}
         />
-      </div>
+
+        <div>
+          <p>{post.title}</p>
+          <span>{post.description}</span>
+          <span>{post.date.toString()}</span>
+        </div>
+      </Link>
     ))
   }
 
