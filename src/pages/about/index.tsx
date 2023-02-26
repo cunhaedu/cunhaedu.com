@@ -6,10 +6,16 @@ import BaseLayout from '../../components/Layouts/BaseLayout';
 import ProfileImg from '../../../public/assets/profile.png';
 
 import styles from './styles.module.scss';
+import Head from 'next/head';
 
 function About() {
   return (
     <div className={styles.about}>
+
+      <Head>
+        <title>About | Eduardo Assunção</title>
+      </Head>
+
       <div>
         <section className={styles.about__main_section}>
           <p>Hello, my name is</p>

@@ -22,10 +22,10 @@
     @apply mb-5;
     @apply object-cover;
     @apply object-center;
-    @apply grayscale;
     @apply transition-all;
     @apply duration-700;
     @apply ease-in-out;
+    @apply md:grayscale
   }
 
   > h3 {

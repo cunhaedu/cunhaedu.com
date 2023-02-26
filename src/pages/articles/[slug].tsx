@@ -28,10 +28,6 @@ type PostProps = {
 }
 
 const Post: NextPageWithLayout = (props: PostProps) => {
-  // if (props.errorCode) {
-  //   return <ErrorMessage code={props.errorCode} />
-  // }
-
   const title = `${props.title} // Zeno Rocha`
   const description = props.description || ''
   const url = `https://zenorocha.com/${props.slug}`

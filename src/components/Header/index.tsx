@@ -1,19 +1,23 @@
-import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Popover, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import cls from 'classnames';
 import {
-  FaGithub as GithubIcon,
-  FaLinkedin as LinkedinIcon,
-  FaEnvelope as EnvelopeIcon,
-} from 'react-icons/fa';
+  BookOpenIcon,
+  CloseDialogIcon,
+  DarkThemeIcon,
+  EnvelopeIcon,
+  GithubIcon,
+  HamburgerMenuIcon,
+  LightThemeIcon,
+  LinkedinIcon
+} from '@/shared/icons';
 
 import { ActiveLink } from '../ActiveLink';
 
 import styles from './styles.module.scss';
-import { useRouter } from 'next/router';
 
 export function Header() {
   const [isComponentMounted, setIsComponentMounted] = useState(false);
@@ -40,8 +44,8 @@ export function Header() {
         onClick={() => handleSwitchTheme(currentTheme ?? 'dark')}
       >
         {currentTheme === 'dark'
-          ? <SunIcon className={styles.button__theme_icon} />
-          : <MoonIcon className={styles.button__theme_icon} />
+          ? <LightThemeIcon className={styles.button__theme_icon} />
+          : <DarkThemeIcon className={styles.button__theme_icon} />
         }
       </button>
     )
@@ -64,7 +68,7 @@ export function Header() {
           <div className={styles.header__hamburger_menu_container}>
             <Popover.Button>
               <span className='sr-only'>Open menu</span>
-              <Bars3Icon height={32} width={32} aria-hidden />
+              <HamburgerMenuIcon height={32} width={32} aria-hidden />
             </Popover.Button>
           </div>
 
@@ -103,7 +107,7 @@ export function Header() {
                     <div className={styles.header__mobile__main_content_close_icon_container}>
                       <Popover.Button>
                         <span className="sr-only">Close menu</span>
-                        <XMarkIcon width={24} height={24} aria-hidden />
+                        <CloseDialogIcon width={24} height={24} aria-hidden />
                       </Popover.Button>
                     </div>
                   </div>
@@ -140,6 +144,18 @@ export function Header() {
                     </Popover.Button>
 
                     <div>
+                      <a href='mailto:cunhaeduardo1231@gmail.com'>
+                        <EnvelopeIcon size={28} />
+                      </a>
+
+                      <a
+                        href="https://www.skoob.com.br/share/user/cunhaedu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BookOpenIcon size={28} />
+                      </a>
+
                       <a
                         href="https://github.com/cunhaedu"
                         target="_blank"
@@ -154,10 +170,6 @@ export function Header() {
                         rel="noopener noreferrer"
                       >
                         <LinkedinIcon size={28} />
-                      </a>
-
-                      <a href='mailto:cunhaeduardo1231@gmail.com'>
-                        <EnvelopeIcon size={28} />
                       </a>
                     </div>
                   </div>

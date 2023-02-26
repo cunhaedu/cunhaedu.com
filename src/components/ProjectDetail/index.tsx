@@ -1,7 +1,7 @@
-import { ArrowTopRightOnSquareIcon as ExternalLinkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import Link from 'next/link';
 import cls from 'classnames';
+
+import { BehanceIcon, ExternalLinkIcon, GithubIcon } from '@/shared/icons';
 
 import styles from './styles.module.scss';
 
@@ -11,6 +11,8 @@ type ProjectDetailProps = {
     title: string;
     cover: string;
     description: string;
+    github: string;
+    behance: string;
     technologies: string[];
   }
 }
@@ -55,9 +57,19 @@ export function ProjectDetail({ data }: ProjectDetailProps) {
       <div className={styles.project_detail__footer}>
         <TechnologiesSection technologies={data.technologies} />
 
-        <Link href={`/projects/${data.slug}`}>
-          View Details
-        </Link>
+        <div>
+          {data.github && (
+            <a href={data.behance} target="_blank" rel="noopener noreferrer">
+              <BehanceIcon size={18} className="dark:hover:text-white" />
+            </a>
+          )}
+
+          {data.behance && (
+            <a href={data.github} target="_blank" rel="noopener noreferrer">
+              <GithubIcon size={18} className="dark:hover:text-white" />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

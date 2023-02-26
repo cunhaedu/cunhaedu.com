@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { ReactElement } from 'react';
 
 import BaseLayout from '../../components/Layouts/BaseLayout';
@@ -9,6 +10,11 @@ import styles from './styles.module.scss';
 function Projects() {
   return (
     <div className={styles.project}>
+
+      <Head>
+        <title>Projects | Eduardo Assunção</title>
+      </Head>
+
       <div>
         <section className={styles.project__header}>
           <h1 className='dark:bg-projects-gradient'>

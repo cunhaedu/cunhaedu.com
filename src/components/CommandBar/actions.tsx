@@ -1,19 +1,21 @@
-import {
-  BookmarkIcon,
-  CodeBracketIcon,
-  ComputerDesktopIcon,
-  EnvelopeIcon,
-  HomeIcon,
-  LinkIcon,
-  PencilIcon,
-  MoonIcon,
-  SunIcon
-} from '@heroicons/react/24/outline';
-import { FaGithub, FaLinkedin, FaToggleOn } from 'react-icons/fa';
 import { NextRouter } from 'next/router';
 import { Action } from 'kbar';
 
-import { SkoobIcon } from '../Icons/Skoob';
+import {
+  AboutIcon,
+  CodeIcon,
+  ComputerDesktopIcon,
+  DarkThemeIcon,
+  EmailIcon,
+  GithubIcon,
+  HomeIcon,
+  LightThemeIcon,
+  LinkedinIcon,
+  LinkIcon,
+  PencilIcon,
+  SkoobIcon,
+  ToggleIcon
+} from '@/shared/icons';
 
 type ToastOptions = {
   title: string;
@@ -75,7 +77,7 @@ export function retrieveCommandBarActions({
         '_blank',
         'noopener,noreferrer'
       ),
-      icon: <EnvelopeIcon className='w-6 h-6' />,
+      icon: <EmailIcon className='w-6 h-6' />,
     },
     {
       id: 'source',
@@ -88,7 +90,7 @@ export function retrieveCommandBarActions({
         '_blank',
         'noopener,noreferrer'
       ),
-      icon: <CodeBracketIcon className='w-6 h-6' />,
+      icon: <CodeIcon className='w-6 h-6' />,
     },
     {
       id: 'home',
@@ -106,7 +108,7 @@ export function retrieveCommandBarActions({
       keywords: 'go-about',
       section: 'Go To',
       perform: () => router.push('/about'),
-      icon: <BookmarkIcon className='w-6 h-6' />,
+      icon: <AboutIcon className='w-6 h-6' />,
     },
     {
       id: 'articles',
@@ -136,7 +138,7 @@ export function retrieveCommandBarActions({
         '_blank',
         'noopener,noreferrer'
       ),
-      icon: <FaGithub size={24} />,
+      icon: <GithubIcon size={24} />,
     },
     {
       id: 'linkedin',
@@ -148,7 +150,7 @@ export function retrieveCommandBarActions({
         '_blank',
         'noopener,noreferrer'
       ),
-      icon: <FaLinkedin size={24} />,
+      icon: <LinkedinIcon size={24} />,
     },
     {
       id: 'skoob',
@@ -167,14 +169,14 @@ export function retrieveCommandBarActions({
       name: 'Change theme…',
       keywords: 'change-theme',
       section: 'General',
-      icon: <FaToggleOn size={24} />
+      icon: <ToggleIcon size={24} />
     },
     {
       id: 'darkTheme',
       name: 'Dark',
       keywords: 'change-theme-to-dark',
       parent: 'theme',
-      icon: <MoonIcon className='w-6 h-6' />,
+      icon: <DarkThemeIcon className='w-6 h-6' />,
       perform: () => setTheme('dark')
     },
     {
@@ -182,7 +184,7 @@ export function retrieveCommandBarActions({
       name: 'Light',
       keywords: 'change-theme-to-light',
       parent: 'theme',
-      icon: <SunIcon className='w-6 h-6' />,
+      icon: <LightThemeIcon className='w-6 h-6' />,
       perform: () => setTheme('light')
     },
   ];

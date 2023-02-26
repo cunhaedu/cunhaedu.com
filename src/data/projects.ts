@@ -5,7 +5,7 @@ export const projects = [
     cover: '/assets/projects/plenitude_website/cover.png',
     presentation: '/assets/projects/plenitude_website/presentation.png',
     github: 'https://github.com/cunhaedu/plenitude-website',
-    behance: null,
+    behance: 'https://www.behance.net/gallery/162999085/Site-Comunidade-Plenitude',
     description: 'This is a website created to a church in my city with branches in another cities of São Paulo.',
     technologies: ['Nextjs', 'Graphql', 'Apollo Client', 'React', 'Tailwindcss', 'Swiper js', 'Hygraphcms']
   },

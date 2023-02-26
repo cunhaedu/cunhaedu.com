@@ -9,6 +9,7 @@ import { getAllPosts, getPostBySlug } from '../../lib/blog';
 
 import styles from './styles.module.scss';
 import Link from 'next/link';
+import Head from 'next/head';
 
 type Article = {
   content: string;
@@ -49,7 +50,8 @@ function Articles({ featuredPosts, allPosts }: ArticlesProps) {
         key={post.slug}
         className={clx(
           styles.article__post_container,
-          'dark:bg-gray-900/40 dark:border-none'
+          'dark:bg-gray-700/40 md:dark:bg-gray-800/40',
+          'dark:hover:bg-gray-600/40 dark:border-none'
         )}
       >
         <Image
@@ -70,6 +72,11 @@ function Articles({ featuredPosts, allPosts }: ArticlesProps) {
 
   return (
     <div className={styles.article}>
+
+      <Head>
+        <title>Articles | Eduardo Assunção</title>
+      </Head>
+
       <div>
         <section className={styles.article__header}>
           <h1 className='dark:bg-articles-gradient'>
@@ -87,7 +94,7 @@ function Articles({ featuredPosts, allPosts }: ArticlesProps) {
         </section>
 
         <section className={styles.article__all_articles}>
-          <h1>All Articles</h1>
+          <h2>All Articles</h2>
 
           {renderAll()}
         </section>
@@ -109,7 +116,6 @@ export const getStaticProps: GetStaticProps = () => {
   ];
 
   const featuredPosts = [
-    getPostBySlug('how-to-work-with-typeorm-tree-entities-part-1', featuredParams),
     getPostBySlug('how-to-work-with-typeorm-tree-entities-part-1', featuredParams),
   ];
 

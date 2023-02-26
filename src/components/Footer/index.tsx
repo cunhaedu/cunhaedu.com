@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import {
-  FaGithub as GithubIcon,
-  FaLinkedin as LinkedinIcon,
-  FaEnvelope as EnvelopeIcon,
-  FaBookOpen as BookOpenIcon
-} from 'react-icons/fa';
 import cls from 'classnames';
+import {
+  BookOpenIcon,
+  EnvelopeIcon,
+  GithubIcon,
+  LinkedinIcon
+} from '@/shared/icons';
 
 import styles from './styles.module.scss';
 
